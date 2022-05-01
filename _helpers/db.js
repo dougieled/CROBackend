@@ -8,7 +8,7 @@ initialize();
 
 async function initialize() {
     // create db if it doesn't already exist
-    const { host, port, user, password, database } = process.env.PORT?config.database:config.databaseLocal;
+    const { host, port, user, password, database } = config.databaseLocal;
     let connectionConfig = {
       host:process.env.HOST?process.env.HOST:host,
       port:process.env.PORT?process.env.PORT:port,
