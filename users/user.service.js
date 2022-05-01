@@ -3,6 +3,8 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const db = require('_helpers/db');
 
+let secret = process.env.SECRET?process.env.SECRET:config.secret
+
 module.exports = {
     authenticate,
     getAll,
@@ -19,7 +21,7 @@ async function authenticate({ username, password }) {
         throw 'Username or password is incorrect';
 
     // authentication successful
-    const token = jwt.sign({ sub: user.id }, config.secret, { expiresIn: '7d' });
+    const token = jwt.sign({ sub: user.id }, secret, { expiresIn: '7d' });
     return { ...omitHash(user.get()), token };
 }
 
@@ -67,7 +69,7 @@ async function update(id, params) {
     Object.assign(user, params);
     await user.save();
 
-    const token = jwt.sign({ sub: user.id }, config.secret, { expiresIn: '7d' });
+    const token = jwt.sign({ sub: user.id }, secret, { expiresIn: '7d' });
     return { ...omitHash(user.get()), token };
 }
 
