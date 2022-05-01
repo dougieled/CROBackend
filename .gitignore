@@ -104,6 +104,6 @@ dist
 .tern-port
 
 # Config File
-config.json
-
+config/config.json
+config/dev.js
 

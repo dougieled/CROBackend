@@ -1,7 +1,7 @@
 const jwt = require('express-jwt');
-const config = require('config.json');
+const keys = require('../config/keys');
 const db = require('_helpers/db');
-let secret = process.env.SECRET?process.env.SECRET:config.secret
+let secret = keys.secret
 
 module.exports = authorizeAdmin;
 

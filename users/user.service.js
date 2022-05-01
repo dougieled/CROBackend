@@ -1,9 +1,9 @@
-﻿const config = require('config.json');
+﻿const keys = require('../config/keys');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const db = require('_helpers/db');
 
-let secret = process.env.SECRET?process.env.SECRET:config.secret
+let secret = keys.secret
 
 module.exports = {
     authenticate,
