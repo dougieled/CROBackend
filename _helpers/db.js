@@ -9,7 +9,7 @@ initialize()
 
 async function initialize() {
   const { host, port, user, password, database } = keys;
-
+  console.log(host,port,user,password)
   const connection = await mysql.createConnection({ host, port, user, password })
   await connection.query(
     `CREATE DATABASE IF NOT EXISTS \`${database}\`;`
