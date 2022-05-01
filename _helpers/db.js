@@ -16,7 +16,7 @@ async function initialize() {
       password:process.env.DBPASSWORD?process.env.DBPASSWORD:password,
       database:process.env.DATABASE?process.env.DATABASE:database
     }
-
+    console.log(connectionConfig)
     const connection = await mysql.createConnection(connectionConfig);
     await connection.query(`CREATE DATABASE IF NOT EXISTS \`${connectionConfig.database}\`;`);
 
