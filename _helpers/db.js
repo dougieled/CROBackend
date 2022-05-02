@@ -4,7 +4,6 @@ const mysql = require('mysql2/promise')
 const { Sequelize } = require('sequelize')
 
 module.exports = db = {}
-console.log(keys)
 initialize()
 
 async function initialize() {
@@ -17,11 +16,11 @@ async function initialize() {
 
   // connect to db
   const sequelize = new Sequelize(
-    keys.database,
-    keys.user,
-    keys.password,
+    database,
+    user,
+    password,
     {
-      host: keys.host,
+      host: host,
       dialect: 'mysql',
 
       dialectOptions: {
