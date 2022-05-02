@@ -17,5 +17,5 @@ app.use('/transactions', require('./transactions/transactions.controller'));
 app.use(errorHandler);
 
 // start server
-const port = process.env.PORT || 4000;
+const port = process.env.MYPORT || 4000;
 app.listen(port, () => console.log('Server listening on port ' + port));
